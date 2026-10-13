@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+release/
+target/
+
+# Tauri / Rust
+desktop/src-tauri/target/
+desktop/src-tauri/gen/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# Browser automation artifacts
+.playwright-mcp/
+website/serve-log*.txt
+
+# Env
+.env
+.env.local
+
+# Turbo
+.turbo/
+
+# OpenCode agent workspace (local RAG index)
+.opencode/
+
+# Internal dev-process docs (kept locally, not published)
+implementation-plan/
+00-PROJECT-OVERVIEW.md

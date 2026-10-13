@@ -1,0 +1,328 @@
+import { createCvDocument, newId } from "@ats/core"
+import type { CvDocument, CvSection } from "@ats/core"
+
+function section(doc: CvDocument, type: CvSection["type"], items: CvSection["items"]): CvSection {
+  return { ...doc.sections.find((s) => s.type === type)!, enabled: true, items }
+}
+
+export function sampleLong(): CvDocument {
+  const doc = createCvDocument({ locale: "en", name: "Long sample CV" })
+  const years = Array.from({ length: 8 }, () => ({ id: newId("item") }))
+  return {
+    ...doc,
+    contact: {
+      fullName: "Alexandre Whitmore",
+      jobTitle: "Principal Software Engineer & Technical Lead",
+      email: "alex.whitmore@example.com",
+      phone: "+44 20 7946 0958",
+      location: "London, United Kingdom",
+      website: "alexwhitmore.dev",
+      linkedin: "linkedin.com/in/alexwhitmore",
+      github: "github.com/alexwhitmore",
+    },
+    sections: [
+      section(doc, "summary", [
+        {
+          id: newId("item"),
+          text: "Principal software engineer with 15+ years of experience designing large-scale distributed systems for financial services and e-commerce. Led engineering organisations of up to 40 people across four countries. Specialist in event-driven architecture, platform reliability, and developer productivity. Six patents filed and three industry conference keynotes.",
+        },
+      ]),
+      section(doc, "experience", [
+        {
+          id: newId("item"),
+          role: "Principal Software Engineer",
+          company: "Meridian Financial Group",
+          location: "London, UK",
+          startDate: "2019-04",
+          endDate: "",
+          current: true,
+          bullets: [
+            "Architected the trading platform upgrade serving $4.2B daily volume with 99.995% uptime",
+            "Led a 12-person cross-functional team through a 2-year migration from monolith to event-driven services",
+            "Introduced chaos engineering practices that reduced outage duration by 70%",
+            "Defined the company-wide reliability SLIs/SLOs framework adopted by 8 product groups",
+            "Mentored 15 engineers, 4 of whom were promoted to staff level",
+            "Drove cost optimisation programme saving $1.8M annually on cloud infrastructure",
+          ],
+        },
+        {
+          id: newId("item"),
+          role: "Senior Software Engineer",
+          company: "Streamline Commerce Ltd.",
+          location: "London, UK",
+          startDate: "2015-08",
+          endDate: "2019-03",
+          current: false,
+          bullets: [
+            "Built the recommendation pipeline processing 500M events daily with sub-100ms p99 latency",
+            "Designed the multi-region failover strategy used during peak shopping seasons",
+            "Led the team's Kubernetes adoption, migrating 60 services with zero downtime",
+            "Authored internal white paper on data consistency patterns still cited in onboarding",
+          ],
+        },
+        {
+          id: newId("item"),
+          role: "Software Engineer",
+          company: "Atlas Logistics",
+          location: "Manchester, UK",
+          startDate: "2012-01",
+          endDate: "2015-07",
+          current: false,
+          bullets: [
+            "Developed the real-time fleet tracking system used by 3,000 drivers",
+            "Reduced map tile loading costs by 45% through caching strategy redesign",
+            "Won internal hackathon with the predictive delay-warning prototype later shipped to production",
+          ],
+        },
+        {
+          id: newId("item"),
+          role: "Junior Software Engineer",
+          company: "Brightside Media",
+          location: "Manchester, UK",
+          startDate: "2009-06",
+          endDate: "2011-12",
+          current: false,
+          bullets: [
+            "Shipped 20+ client websites on a shared CMS platform",
+            "Automated the deployment pipeline, cutting release time from 2 days to 40 minutes",
+          ],
+        },
+        {
+          id: newId("item"),
+          role: "Intern",
+          company: "Brightside Media",
+          location: "Manchester, UK",
+          startDate: "2008-06",
+          endDate: "2008-09",
+          current: false,
+          bullets: ["Assisted the QA team with test automation for two product lines"],
+        },
+      ]),
+      section(doc, "education", [
+        {
+          id: newId("item"),
+          degree: "MSc in Advanced Computer Science",
+          institution: "University of Manchester",
+          location: "Manchester, UK",
+          startDate: "2007-09",
+          endDate: "2009-06",
+          current: false,
+          details: "Distinction. Dissertation on distributed consensus algorithms.",
+        },
+        {
+          id: newId("item"),
+          degree: "BSc in Computer Science",
+          institution: "University of Leeds",
+          location: "Leeds, UK",
+          startDate: "2004-09",
+          endDate: "2007-06",
+          current: false,
+          details: "First-class honours. President of the programming society.",
+        },
+        {
+          id: newId("item"),
+          degree: "A-Levels: Mathematics, Physics, Computer Science",
+          institution: "St. Aidan's College",
+          location: "Leeds, UK",
+          startDate: "2002-09",
+          endDate: "2004-06",
+          current: false,
+          details: "",
+        },
+      ]),
+      section(
+        doc,
+        "skills",
+        years.map((y, i) => ({
+          id: y.id,
+          name: [
+            "Event-Driven Architecture",
+            "Kubernetes",
+            "Go",
+            "Rust",
+            "PostgreSQL",
+            "Apache Kafka",
+            "Terraform",
+            "AWS",
+            "Distributed Systems",
+            "Microservices",
+            "CI/CD",
+            "System Design",
+            "Team Leadership",
+            "Technical Strategy",
+            "Performance Tuning",
+            "GraphQL",
+            "Redis",
+            "OpenTelemetry",
+            "gRPC",
+            "Domain-Driven Design",
+          ][i % 20],
+        })),
+      ),
+      section(doc, "projects", [
+        {
+          id: newId("item"),
+          name: "Orbital - Workflow Orchestration Engine",
+          description:
+            "Open-source orchestration engine with 9k GitHub stars, processing 2M job runs monthly across 400 organisations.",
+          link: "github.com/alexwhitmore/orbital",
+          startDate: "2021-01",
+          endDate: "",
+          current: true,
+          bullets: [
+            "Designed the state machine core and plugin API",
+            "Triple-digit contributor community",
+          ],
+        },
+        {
+          id: newId("item"),
+          name: "LedgerKit - Financial Ledger Library",
+          description:
+            "Double-entry ledger library in Go with audit trails, used by 3 fintech startups.",
+          link: "github.com/alexwhitmore/ledgerkit",
+          startDate: "2019-10",
+          endDate: "2021-02",
+          current: false,
+          bullets: [
+            "Zero-dependency design, 100% test coverage",
+            "Benchmarked at 1M transactions per second",
+          ],
+        },
+        {
+          id: newId("item"),
+          name: "ChaosLab - Failure Injection Platform",
+          description:
+            "Internal chaos engineering platform adopted by 6 teams, simulating 200+ failure scenarios.",
+          link: "",
+          startDate: "2020-03",
+          endDate: "2020-11",
+          current: false,
+          bullets: [],
+        },
+        {
+          id: newId("item"),
+          name: "Streamy - Personal Data Pipeline",
+          description:
+            "Home-lab streaming analytics pipeline processing IoT sensor data with real-time alerting.",
+          link: "github.com/alexwhitmore/streamy",
+          startDate: "2023-02",
+          endDate: "",
+          current: true,
+          bullets: [],
+        },
+      ]),
+      section(doc, "certifications", [
+        {
+          id: newId("item"),
+          name: "AWS Certified Solutions Architect - Professional",
+          issuer: "Amazon Web Services",
+          date: "2020-09",
+          link: "",
+        },
+        {
+          id: newId("item"),
+          name: "Certified Kubernetes Administrator",
+          issuer: "CNCF",
+          date: "2019-06",
+          link: "",
+        },
+        {
+          id: newId("item"),
+          name: "TOGAF 9 Certified",
+          issuer: "The Open Group",
+          date: "2018-02",
+          link: "",
+        },
+        {
+          id: newId("item"),
+          name: "Professional Scrum Master II",
+          issuer: "Scrum.org",
+          date: "2017-05",
+          link: "",
+        },
+      ]),
+      section(doc, "languages", [
+        { id: newId("item"), name: "English", level: "native" },
+        { id: newId("item"), name: "German", level: "advanced" },
+        { id: newId("item"), name: "French", level: "intermediate" },
+      ]),
+      section(doc, "awards", [
+        {
+          id: newId("item"),
+          title: "Engineering Impact Award",
+          issuer: "Meridian Financial Group",
+          date: "2023-11",
+          description: "For the platform reliability programme.",
+        },
+        {
+          id: newId("item"),
+          title: "Speaker of the Year",
+          issuer: "London Tech Conference",
+          date: "2022-09",
+          description: "",
+        },
+      ]),
+      section(doc, "volunteering", [
+        {
+          id: newId("item"),
+          role: "Organiser",
+          organization: "London Go Meetup",
+          location: "London, UK",
+          startDate: "2018-01",
+          endDate: "",
+          current: true,
+          description: "Organise monthly meetups with 80-150 attendees.",
+        },
+        {
+          id: newId("item"),
+          role: "Open Source Mentor",
+          organization: "CodeFirst Girls",
+          location: "Remote",
+          startDate: "2020-09",
+          endDate: "2023-08",
+          current: false,
+          description: "Mentored 12 mentees through open-source first contributions.",
+        },
+      ]),
+      section(doc, "publications", [
+        {
+          id: newId("item"),
+          title: "Consistency Without Compromise",
+          publisher: "ACM Queue",
+          date: "2023-06",
+          url: "acmqueue.example",
+        },
+        {
+          id: newId("item"),
+          title: "The Price of Resiliency",
+          publisher: "InfoQ",
+          date: "2022-03",
+          url: "infoq.example",
+        },
+        {
+          id: newId("item"),
+          title: "Observability at Scale",
+          publisher: "Conference on Platform Engineering",
+          date: "2021-10",
+          url: "",
+        },
+      ]),
+      section(doc, "courses", [
+        {
+          id: newId("item"),
+          name: "Advanced Distributed Systems Design",
+          provider: "MIT OpenCourseWare",
+          date: "2021-05",
+          description: "Audited course on consensus, replication and ordering.",
+        },
+        {
+          id: newId("item"),
+          name: "Board-Level Engineering Leadership",
+          provider: "Leading Executives Institute",
+          date: "2022-09",
+          description: "",
+        },
+      ]),
+    ],
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "@ats/features",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./theme": "./src/theme/index.ts",
+    "./persistence": "./src/persistence/index.ts",
+    "./editor-context": "./src/editor/editor-context.tsx",
+    "./active-editor": "./src/editor/use-cv-editor.ts",
+    "./dashboard": "./src/dashboard/dashboard-page.tsx",
+    "./editor": "./src/editor/editor-page.tsx",
+    "./import": "./src/import/import-wizard.tsx",
+    "./print": "./src/print/print-view.tsx",
+    "./settings": "./src/settings/settings-page.tsx",
+    "./templates-page": "./src/pages/templates-page.tsx",
+    "./not-found": "./src/pages/not-found-page.tsx"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ats/core": "workspace:*",
+    "@ats/exporters": "workspace:*",
+    "@ats/i18n": "workspace:*",
+    "@ats/importers": "workspace:*",
+    "@ats/templates": "workspace:*",
+    "@ats/ui": "workspace:*",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@tauri-apps/api": "^2.11.1",
+    "@tauri-apps/plugin-dialog": "^2.7.2",
+    "@tauri-apps/plugin-fs": "^2.5.1",
+    "@tauri-apps/plugin-opener": "^2.4.0",
+    "framer-motion": "^13.1.0",
+    "lucide-react": "^1.31.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-i18next": "^17.0.11",
+    "react-router-dom": "^7.18.2",
+    "sonner": "^2.0.8",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4"
+  }
+}

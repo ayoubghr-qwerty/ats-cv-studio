@@ -1,0 +1,8 @@
+packages:
+  - desktop
+  - website
+  - packages/*
+
+allowBuilds:
+  esbuild: true
+  "@tauri-apps/cli": true

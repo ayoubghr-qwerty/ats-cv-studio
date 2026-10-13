@@ -1,0 +1,23 @@
+{
+  "name": "@ats/exporters",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@ats/core": "workspace:*",
+    "@ats/templates": "workspace:*",
+    "docx": "^9.7.1"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.10"
+  }
+}

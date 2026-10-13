@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATS CV Studio</title>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("ats.theme");
+          var d =
+            t === "dark" ||
+            (t !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+              ? "dark"
+              : "light";
+          var r = document.documentElement;
+          r.classList.add(d);
+          r.style.colorScheme = d;
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "name": "ats-cv-studio",
+  "private": true,
+  "version": "1.3.0",
+  "description": "Offline-first ATS-safe CV builder — desktop (Tauri) + web",
+  "type": "module",
+  "packageManager": "pnpm@11.21.0",
+  "scripts": {
+    "dev:desktop": "pnpm --filter desktop dev",
+    "dev:web": "pnpm --filter website dev",
+    "build:desktop": "pnpm --filter desktop build",
+    "build:web": "pnpm --filter website build",
+    "tauri:build": "pnpm --filter desktop tauri build",
+    "test": "turbo run test",
+    "lint": "eslint .",
+    "format": "prettier --write \"packages/**/src/**/*.{ts,tsx,json,css}\" \"website/src/**/*.{ts,tsx,css}\" \"desktop/src/**/*.{ts,tsx,css}\"",
+    "format:check": "prettier --check \"packages/**/src/**/*.{ts,tsx,json,css}\" \"website/src/**/*.{ts,tsx,css}\" \"desktop/src/**/*.{ts,tsx,css}\"",
+    "check:versions": "node scripts/check-versions.mjs",
+    "lint:templates:ats": "node scripts/lint-template-ats-rules.mjs",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
+    "prettier": "^3.9.6",
+    "turbo": "^2.10.9",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.67.0"
+  }
+}
